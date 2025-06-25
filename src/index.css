@@ -10,21 +10,36 @@ body {
   @apply bg-white/5 backdrop-blur-md border border-white/10;
 }
 
-@keyframes sparkle {
-  0% {
-    transform: translate(0, 0) scale(0.8);
-    opacity: 0.3;
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.1;
   }
   50% {
-    transform: translate(30px, -30px) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.animate-blink {
+  animation: blink 2s infinite ease-in-out;
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 1;
+  }
+  70% {
     opacity: 0.8;
   }
   100% {
-    transform: translate(60px, -60px) scale(1);
+    transform: translate(-800px, 800px) rotate(-45deg);
     opacity: 0;
   }
 }
 
-.animate-sparkle {
-  animation: sparkle 1.2s ease-in-out forwards;
+.animate-shooting-star {
+  animation: shooting-star 1.5s ease-out infinite;
 }
+
+

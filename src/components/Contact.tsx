@@ -1,8 +1,38 @@
 // File: src/sections/Contact.tsx
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
 const Contact: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setStatus("sending");
+
+    emailjs
+      .sendForm(
+        "service_nl1gs37", // e.g., "service_123abc"
+        "template_5dvlg3j", // e.g., "template_xyz789"
+        formRef.current,
+        "xhQoRp-3f6PANC4Bn" // e.g., "fHEgh-LFWHRt2d123"
+      )
+      .then(
+        () => {
+          setStatus("sent");
+          formRef.current?.reset();
+        },
+        () => {
+          setStatus("error");
+        }
+      );
+  };
+
   return (
     <section id="contact" className="px-6 py-16 max-w-3xl mx-auto">
       <motion.div
@@ -13,11 +43,11 @@ const Contact: React.FC = () => {
         className="glass p-8 rounded-2xl shadow-lg"
       >
         <h3 className="text-3xl font-bold mb-6 text-center">Contact Me</h3>
-        <form className="space-y-6">
+        <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
           <div className="relative">
             <input
               type="text"
-              name="name"
+              name="from_name"
               required
               className="peer w-full bg-transparent border-b border-white/20 px-2 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-white/40"
               placeholder="Name"
@@ -29,7 +59,7 @@ const Contact: React.FC = () => {
           <div className="relative">
             <input
               type="email"
-              name="email"
+              name="reply_to"
               required
               className="peer w-full bg-transparent border-b border-white/20 px-2 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-white/40"
               placeholder="Email"
@@ -56,7 +86,13 @@ const Contact: React.FC = () => {
             type="submit"
             className="w-full mt-4 bg-white/10 border border-white/20 px-4 py-3 rounded-full text-white hover:bg-white/20 transition-all"
           >
-            Send Message
+            {status === "sending"
+              ? "Sending..."
+              : status === "sent"
+              ? "Message Sent ✅"
+              : status === "error"
+              ? "Error ❌ Try Again"
+              : "Send Message"}
           </motion.button>
         </form>
       </motion.div>
