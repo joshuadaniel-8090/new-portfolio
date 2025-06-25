@@ -16,15 +16,15 @@ import {
   SiSupabase,
   SiPostgresql,
   SiMongodb,
-  SiVercel,
-  SiGithub,
-  SiPostman,
-  SiOpenai,
+  // SiVercel,
+  // SiGithub,
+  // SiPostman,
+  // SiOpenai,
   SiMysql,
 } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
-import { PiWhatsappLogoFill } from "react-icons/pi";
-import { TbBrandVercel } from "react-icons/tb";
+// import { FaGitAlt } from "react-icons/fa";
+// import { PiWhatsappLogoFill } from "react-icons/pi";
+// import { TbBrandVercel } from "react-icons/tb";
 
 type StackItem = {
   name: string;
