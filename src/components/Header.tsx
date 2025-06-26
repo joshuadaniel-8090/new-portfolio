@@ -74,41 +74,39 @@ const Header: React.FC = () => {
 
         {/* Capsule Nav for Desktop */}
         <motion.div
-  animate={{
-    paddingLeft: scrolled ? "1.5rem" : "2.5rem",
-    paddingRight: scrolled ? "1.5rem" : "2.5rem",
-    paddingTop: scrolled ? "0.5rem" : "0.75rem",
-    paddingBottom: scrolled ? "0.5rem" : "0.75rem",
-    gap: scrolled ? "2rem" : "4rem",
-    width:
-      scrolled
-        ? window.innerWidth >= 1536 // 2XL screens (Tailwind's 2xl breakpoint)
-          ? "45%"
-          : window.innerWidth >= 1440
-          ? "50%"
-          : window.innerWidth >= 1280
-          ? "55%"
-          : window.innerWidth >= 1024
-          ? "65%"
-          : window.innerWidth >= 768
-          ? "80%"
-          : "90%"
-        : window.innerWidth >= 1536
-        ? "55%"
-        : window.innerWidth >= 1440
-        ? "60%"
-        : window.innerWidth >= 1280
-        ? "65%"
-        : window.innerWidth >= 1024
-        ? "75%"
-        : window.innerWidth >= 768
-        ? "90%"
-        : "95%",
-  }}
-  transition={{ duration: 0.4, ease: "easeOut" }}
-  className="hidden md:flex rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg items-center justify-center mx-auto"
->
-
+          animate={{
+            paddingLeft: scrolled ? "1.5rem" : "2.5rem",
+            paddingRight: scrolled ? "1.5rem" : "2.5rem",
+            paddingTop: scrolled ? "0.5rem" : "0.75rem",
+            paddingBottom: scrolled ? "0.5rem" : "0.75rem",
+            gap: scrolled ? "2rem" : "4rem",
+            width: scrolled
+              ? window.innerWidth >= 1536 // 2XL screens (Tailwind's 2xl breakpoint)
+                ? "45%"
+                : window.innerWidth >= 1440
+                ? "50%"
+                : window.innerWidth >= 1280
+                ? "55%"
+                : window.innerWidth >= 1024
+                ? "65%"
+                : window.innerWidth >= 768
+                ? "80%"
+                : "90%"
+              : window.innerWidth >= 1536
+              ? "55%"
+              : window.innerWidth >= 1440
+              ? "60%"
+              : window.innerWidth >= 1280
+              ? "65%"
+              : window.innerWidth >= 1024
+              ? "75%"
+              : window.innerWidth >= 768
+              ? "90%"
+              : "95%",
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="hidden md:flex rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg items-center justify-center mx-auto"
+        >
           {links.map((link, idx) => (
             <motion.button
               key={idx}
