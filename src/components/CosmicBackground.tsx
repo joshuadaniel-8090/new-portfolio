@@ -3,22 +3,59 @@ import React from "react";
 const CosmicBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
-      {/* Glow Blobs */}
-      {[...Array(5)].map((_, i) => {
-        const size = 200 + Math.random() * 200;
+      {/* Custom CSS */}
+      <style>{`
+        @keyframes glowFade {
+          0%, 100% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+
+        .animate-glow-fade {
+          animation-name: glowFade;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 0.2 }
+          50% { opacity: 1 }
+        }
+
+        .animate-blink {
+          animation: blink 2s infinite ease-in-out;
+        }
+      `}</style>
+
+      {/* Glow Blobs - More of them, better spread */}
+      {[...Array(14)].map((_, i) => {
+        const size = 160 + Math.random() * 240;
+        const blur = 100 + Math.random() * 150;
+        const duration = 6 + Math.random() * 6; // 6s to 12s
+        const delay = Math.random() * 6;
+        const opacity = 0.5 + Math.random() * 0.3;
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const colors = ["#a855f7", "#ec4899", "#3b82f6", "#9333ea", "#facc15", "#14b8a6"];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
         return (
           <div
             key={`blob-${i}`}
-            className="absolute rounded-full blur-[120px] opacity-30 animate-pulse"
+            className="absolute rounded-full animate-glow-fade"
             style={{
               width: `${size}px`,
               height: `${size}px`,
-              backgroundColor: ["#a855f7", "#ec4899", "#3b82f6", "#9333ea"][
-                i % 4
-              ],
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
+              backgroundColor: color,
+              top: `${top}%`,
+              left: `${left}%`,
+              filter: `blur(${blur}px)`,
+              animationDuration: `${duration}s`,
+              animationDelay: `${delay}s`,
+              opacity,
             }}
           />
         );
@@ -59,60 +96,6 @@ const CosmicBackground: React.FC = () => {
           }}
         />
       ))}
-
-      {/* Shooting Stars */}
-      <>
-        <style>{`
-          @keyframes shooting-star {
-            0% {
-              transform: translate(0, 0) rotate(-45deg);
-              opacity: 1;
-            }
-            70% {
-              opacity: 0.8;
-            }
-            100% {
-              transform: translate(-800px, 800px) rotate(-45deg);
-              opacity: 0;
-            }
-          }
-
-          .animate-shooting-star {
-            animation: shooting-star 1.5s ease-out infinite;
-          }
-
-          @keyframes blink {
-            0%, 100% { opacity: 0.2 }
-            50% { opacity: 1 }
-          }
-
-          .animate-blink {
-            animation: blink 2s infinite ease-in-out;
-          }
-        `}</style>
-
-        {[...Array(6)].map((_, i) => {
-          const top = Math.random() * 60; // Spread stars across top half
-          const left = Math.random() * 100;
-          const width = 100 + Math.random() * 40;
-          const delay = i * 2 + Math.random(); // Each starts 2s apart roughly
-          const duration = 1.4 + Math.random() * 0.6;
-
-          return (
-            <div
-              key={`shooting-star-${i}`}
-              className="absolute h-[2px] bg-white opacity-80 animate-shooting-star shadow-[0_0_8px_rgba(255,255,255,0.6)]"
-              style={{
-                top: `${top}%`,
-                left: `${left}%`,
-                width: `${width}px`,
-                animationDelay: `${delay}s`,
-                animationDuration: `${duration}s`,
-              }}
-            />
-          );
-        })}
-      </>
     </div>
   );
 };

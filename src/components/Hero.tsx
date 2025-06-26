@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex justify-center items-center text-center px-4 md:px-6 overflow-hidden">
+    <section className="relative min-h-[75vh]	 flex justify-center items-center text-center px-4 md:px-6 overflow-hidden">
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 z-10 w-full max-w-7xl">
         {/* Left Box - Image + Identity */}
         <motion.div
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
           </h2>
 
           <h3 className="text-base sm:text-lg md:text-xl text-indigo-300 mb-6 text-left w-full">
-            Creator of{" "}
+            Founder of{" "}
             <a
               href="https://microwrk.online"
               target="_blank"
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-auto px-6 py-3 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-all backdrop-blur-md text-white"
+            className="mt-8 px-6 py-3 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-all backdrop-blur-md text-white"
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {

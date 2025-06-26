@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative px-6 pb-20 max-w-6xl mx-auto text-white overflow-hidden"
+      className="relative px-6 py-8 max-w-6xl mx-auto text-white overflow-hidden"
     >
       <div className="relative group p-10 rounded-3xl bg-white/5 border border-white/20 backdrop-blur-xl shadow-[0_0_30px_rgba(255,255,255,0.1)] overflow-hidden transition-all duration-500 hover:shadow-[0_0_60px_rgba(255,255,255,0.15)]">
         {/* SVG ripple effect filter */}

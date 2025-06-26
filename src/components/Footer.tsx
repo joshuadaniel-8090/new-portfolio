@@ -19,7 +19,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="mt-20 px-6 py-12 text-white text-center relative z-10">
+    <footer className="mt-8 px-6 lg:py-8 text-white text-center relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

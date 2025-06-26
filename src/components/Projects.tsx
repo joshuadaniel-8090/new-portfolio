@@ -53,7 +53,7 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="px-6 pt-40 pb-12 max-w-6xl mx-auto">
+    <section id="projects" className="px-6 lg:pt-20 pb-12 max-w-6xl mx-auto">
       <h3 className="text-3xl font-bold mb-8 text-center text-white">Projects</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
