@@ -10,10 +10,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CosmicBackground from "./components/CosmicBackground";
 import WorkflowAndGoals from "./components/WorkflowAndGoals";
+import { Analytics } from "@vercel/analytics/next";
 
 const App: React.FC = () => {
   return (
     <div className="relative min-h-screen text-white font-sans">
+      <Analytics />
       {/* Fixed cosmic background */}
       <div className="fixed inset-0 -z-10">
         <CosmicBackground />
