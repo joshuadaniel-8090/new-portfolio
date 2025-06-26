@@ -65,23 +65,50 @@ const Header: React.FC = () => {
 
       <header className="sticky top-0 z-50 w-full flex justify-between items-center px-6 py-4 md:justify-center bg-transparent">
         {/* Logo (visible only on mobile) */}
-        <h1 className="md:hidden text-white font-bold text-xl tracking-wide z-50">
+        <h1
+          className="md:hidden text-white font-bold text-xl tracking-wide z-50 cursor-pointer"
+          onClick={() => (window.location.href = "/")}
+        >
           Joshua Daniel
         </h1>
 
         {/* Capsule Nav for Desktop */}
         <motion.div
-          animate={{
-            paddingLeft: scrolled ? "1.5rem" : "2.5rem",
-            paddingRight: scrolled ? "1.5rem" : "2.5rem",
-            paddingTop: scrolled ? "0.5rem" : "0.75rem",
-            paddingBottom: scrolled ? "0.5rem" : "0.75rem",
-            gap: scrolled ? "2rem" : "5rem",
-            width: scrolled ? "35%" : "50%",
-          }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="hidden md:flex rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg items-center justify-center"
-        >
+  animate={{
+    paddingLeft: scrolled ? "1.5rem" : "2.5rem",
+    paddingRight: scrolled ? "1.5rem" : "2.5rem",
+    paddingTop: scrolled ? "0.5rem" : "0.75rem",
+    paddingBottom: scrolled ? "0.5rem" : "0.75rem",
+    gap: scrolled ? "2rem" : "4rem",
+    width:
+      scrolled
+        ? window.innerWidth >= 1536 // 2XL screens (Tailwind's 2xl breakpoint)
+          ? "45%"
+          : window.innerWidth >= 1440
+          ? "50%"
+          : window.innerWidth >= 1280
+          ? "55%"
+          : window.innerWidth >= 1024
+          ? "65%"
+          : window.innerWidth >= 768
+          ? "80%"
+          : "90%"
+        : window.innerWidth >= 1536
+        ? "55%"
+        : window.innerWidth >= 1440
+        ? "60%"
+        : window.innerWidth >= 1280
+        ? "65%"
+        : window.innerWidth >= 1024
+        ? "75%"
+        : window.innerWidth >= 768
+        ? "90%"
+        : "95%",
+  }}
+  transition={{ duration: 0.4, ease: "easeOut" }}
+  className="hidden md:flex rounded-full bg-white/10 border border-white/20 backdrop-blur-md shadow-lg items-center justify-center mx-auto"
+>
+
           {links.map((link, idx) => (
             <motion.button
               key={idx}
