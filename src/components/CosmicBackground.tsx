@@ -62,7 +62,7 @@ const CosmicBackground: React.FC = () => {
       })}
 
       {/* Star Sparkles */}
-      {[...Array(30)].map((_, i) => (
+      {/* {[...Array(30)].map((_, i) => (
         <div
           key={`sparkle-${i}`}
           className="absolute w-3 h-3 bg-white opacity-50 animate-ping"
@@ -81,10 +81,10 @@ const CosmicBackground: React.FC = () => {
             WebkitMaskSize: "cover",
           }}
         />
-      ))}
+      ))} */}
 
       {/* Blinking Tiny Stars */}
-      {[...Array(25)].map((_, i) => (
+      {/* {[...Array(25)].map((_, i) => (
         <div
           key={`blink-star-${i}`}
           className="absolute w-0.5 h-0.5 bg-white rounded-full animate-blink"
@@ -95,7 +95,7 @@ const CosmicBackground: React.FC = () => {
             opacity: Math.random() * 0.5 + 0.2,
           }}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
