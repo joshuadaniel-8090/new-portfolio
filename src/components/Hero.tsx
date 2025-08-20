@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
           </h2>
 
           <h3 className="text-base sm:text-lg md:text-xl text-indigo-300 mb-6 text-left w-full">
-            Founder of{" "}
+            Managing{" "}
             <a
               href="https://microwrk.online"
               target="_blank"
@@ -37,17 +37,36 @@ const Hero: React.FC = () => {
           </h3>
 
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-8 px-6 py-3 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 transition-all backdrop-blur-md text-white"
+            // key={idx}
             onClick={() => {
               const section = document.getElementById("projects");
               if (section) {
                 section.scrollIntoView({ behavior: "smooth" });
               }
             }}
+            transition={{ type: "spring", stiffness: 400, damping: 12 }}
+            className="relative group px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white glow-on-hover transition-all"
           >
-            View Projects
+            {/* Sparkles on hover */}
+            <span
+              className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-80 pointer-events-none hidden group-hover:block"
+              style={{
+                top: "30%",
+                left: "20%",
+                animation: "sparkleFloat 0.5s ease-out forwards",
+                animationDelay: "0.1s",
+              }}
+            />
+            <span
+              className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-80 pointer-events-none hidden group-hover:block"
+              style={{
+                top: "60%",
+                left: "70%",
+                animation: "sparkleFloat 0.5s ease-out forwards",
+                animationDelay: "0.2s",
+              }}
+            />
+            <span className="relative z-10">View Projects</span>
           </motion.button>
         </motion.div>
 
@@ -66,15 +85,33 @@ const Hero: React.FC = () => {
             shipping solo SaaS tools or refining full-stack applications, I
             thrive in transforming raw ideas into live, interactive tools on the
             web. Currently building a product-driven dev journey through{" "}
-            <a
-              href="https://microwrk.online"
-              target="_blank"
-              className="text-indigo-300 underline underline-offset-2 hover:text-indigo-100"
-              rel="noreferrer"
+            <motion.button
+              // key={idx}
+              onClick={() => window.open("https://microwrk.online", "_blank")}
+              transition={{ type: "spring", stiffness: 400, damping: 12 }}
+              className="relative group mt-8 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm text-white glow-on-hover transition-all"
             >
-              microwrk.online
-            </a>
-            .
+              {/* Sparkles on hover */}
+              <span
+                className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-80 pointer-events-none hidden group-hover:block"
+                style={{
+                  top: "30%",
+                  left: "20%",
+                  animation: "sparkleFloat 0.5s ease-out forwards",
+                  animationDelay: "0.1s",
+                }}
+              />
+              <span
+                className="absolute w-1.5 h-1.5 bg-white rounded-full opacity-80 pointer-events-none hidden group-hover:block"
+                style={{
+                  top: "60%",
+                  left: "70%",
+                  animation: "sparkleFloat 0.5s ease-out forwards",
+                  animationDelay: "0.2s",
+                }}
+              />
+              <span className="relative z-10 text-base">microwrk.online</span>
+            </motion.button>
           </p>
         </motion.div>
       </div>

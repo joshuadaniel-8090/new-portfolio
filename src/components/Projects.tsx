@@ -5,56 +5,65 @@ type Project = {
   title: string;
   description: string;
   tech: string[];
-  image: string;
   link: string;
 };
 
 const projects: Project[] = [
   {
+    title: "Microwrk Tools (Beta)",
+    description: "SaaS landing page hosting multiple micro productivity tools.",
+    tech: ["Next.js", "Tailwind", "Vercel"],
+    link: "https://microwrk.online",
+  },
+  {
+    title: "Unplaced University (Beta)",
+    description:
+      "A blog website for Tier 3 college students to help them crack the best product based companies.",
+    tech: ["Next.js", "Tailwind", "Resend", "Supabase"],
+    link: "https://unplaced-university.vercel.app/",
+  },
+  {
     title: "Subscription System (Ongoing)",
     description:
       "A full-featured donation tracker with QR, export, analytics, and WhatsApp reminders.",
     tech: ["React", "Node.js", "Firebase", "whatsapp-web.js"],
-    image: "/projects/church.png",
     link: "https://github.com/yourusername/church-subscription",
   },
   {
-    title: "Microwrk Tools",
-    description: "SaaS landing page hosting multiple micro productivity tools.",
-    tech: ["Next.js", "Tailwind", "Vercel"],
-    image: "/projects/microwrk.png",
-    link: "https://microwrk.online",
-  },
-  {
-    title: "The AI Stack",
+    title: "Project Nehemiah",
     description:
-      "Your personalized AI starter pack. Curated tools, workflows, and frameworks.",
-    tech: ["Next.js", "Tailwind", "Resend", "Supabase"],
-    image: "/projects/aistack.png",
-    link: "https://the-ai-stack.vercel.app/",
+      "A semi-automatic crowd funding website where people can create a campaign, share it, and get donations.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
+    link: "https://project-nehemiah.vercel.app",
+  },
+  // {
+  //   title: "Productivity App (Coming Soon)",
+  //   description:
+  //     "An all-in-one daily planner for focused creators — with tasks, goals, heatmaps, reviews, and themeable UI.",
+  //   tech: ["Next.js", "Tailwind", "Framer Motion", "Supabase"],
+  //   link: "https://your-productivity-app-link.com",
+  // },
+  {
+    title: "LinkAd (Beta)",
+    description: "A URL shortener with analytics and password protection.",
+    tech: ["Next.js", "Tailwind CSS"],
+    link: "https://url-shortner-five-psi-71.vercel.app/",
   },
   {
     title: "BlockUp Website",
     description:
       "Marketing site for BlockUp — a startup exploring API security solutions.",
     tech: ["Next.js", "Tailwind CSS"],
-    image: "/projects/blockup.png",
     link: "https://block-up.tech",
-  },
-  {
-    title: "Productivity App (Coming Soon)",
-    description:
-      "An all-in-one daily planner for focused creators — with tasks, goals, heatmaps, reviews, and themeable UI.",
-    tech: ["Next.js", "Tailwind", "Framer Motion", "Supabase"],
-    image: "/projects/productivity.png", // Add this image to your public folder
-    link: "https://your-productivity-app-link.com", // Replace when ready
   },
 ];
 
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="px-6 lg:pt-20 pb-12 max-w-6xl mx-auto">
-      <h3 className="text-3xl font-bold mb-8 text-center text-white">Projects</h3>
+      <h3 className="text-3xl font-bold mb-8 text-center text-white">
+        Projects
+      </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, idx) => (
@@ -63,20 +72,20 @@ const Projects: React.FC = () => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass p-4 rounded-xl hover:scale-105 transition-transform shadow-md block"
+            className="glass p-6 rounded-xl hover:scale-105 transition-transform shadow-md block"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-40 object-cover rounded-md mb-3"
-            />
-            <h4 className="text-xl font-semibold text-white">
+            {/* Project Title */}
+            <h4 className="text-xl font-semibold text-white mb-2">
               {project.title}
             </h4>
-            <p className="text-gray-400 text-md mt-1 line-clamp-2">
+
+            {/* Project Description */}
+            <p className="text-gray-300 text-sm leading-relaxed line-clamp-3 mb-4">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-2 mt-2">
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2">
               {project.tech.map((tech, index) => (
                 <span
                   key={index}

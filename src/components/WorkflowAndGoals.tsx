@@ -28,7 +28,6 @@ const steps = [
 const goals = [
   "Contribute to open source projects and collaborate with devs worldwide.",
   "Launch my productivity SaaS app with real users.",
-  "Master DSA and system design for strong problem-solving skills.",
   "Document everything — code, journey, and lessons — through a dev blog.",
   "Refine my design-to-code pipeline for world-class UI polish.",
 ];

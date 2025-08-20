@@ -59,6 +59,10 @@ const Footer = () => {
         <p className="text-sm text-gray-400">
           Handcrafted by Joshua Daniel — stay creative 🚀
         </p>
+        <p className="text-sm mt-4 text-gray-400">
+          Last Updated{" "}
+          <span className="text-gray-300 font-mono">20/08/2025 </span>
+        </p>
       </motion.div>
     </footer>
   );

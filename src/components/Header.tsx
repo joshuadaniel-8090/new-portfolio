@@ -82,7 +82,7 @@ const Header: React.FC = () => {
             gap: scrolled ? "2rem" : "4rem",
             width: scrolled
               ? window.innerWidth >= 1536 // 2XL screens (Tailwind's 2xl breakpoint)
-                ? "45%"
+                ? "30%"
                 : window.innerWidth >= 1440
                 ? "50%"
                 : window.innerWidth >= 1280
@@ -93,7 +93,7 @@ const Header: React.FC = () => {
                 ? "80%"
                 : "90%"
               : window.innerWidth >= 1536
-              ? "55%"
+              ? "40%"
               : window.innerWidth >= 1440
               ? "60%"
               : window.innerWidth >= 1280
