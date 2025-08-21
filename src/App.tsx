@@ -8,7 +8,7 @@ import Projects from "./components/Projects";
 import Stack from "./components/Stack";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import CosmicBackground from "./components/CosmicBackground";
+// import CosmicBackground from "./components/CosmicBackground";
 import WorkflowAndGoals from "./components/WorkflowAndGoals";
 import { Analytics } from "@vercel/analytics/react";
 const App: React.FC = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <Analytics />
       {/* Fixed cosmic background */}
       <div className="fixed inset-0 -z-10">
-        <CosmicBackground />
+        {/* <CosmicBackground /> */}
       </div>
 
       <Header />
