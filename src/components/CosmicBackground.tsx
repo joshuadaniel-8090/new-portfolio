@@ -4,7 +4,7 @@ const CosmicBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 -z-10 bg-black overflow-hidden pointer-events-none">
       {/* Custom CSS */}
-      <style>{`
+      {/* <style>{`
         @keyframes glowFade {
           0%, 100% {
             opacity: 0.2;
@@ -28,7 +28,7 @@ const CosmicBackground: React.FC = () => {
         .animate-blink {
           animation: blink 2s infinite ease-in-out;
         }
-      `}</style>
+      `}</style> */}
 
       {/* Glow Blobs - More of them, better spread */}
       {[...Array(14)].map((_, i) => {
