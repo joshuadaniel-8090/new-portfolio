@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const links = [
-  { label: "Home", href: "home" },
+  { label: "Home", href: "header" },
   { label: "About", href: "about" },
   { label: "Projects", href: "projects" },
   { label: "Stack", href: "stack" },
-  { label: "Resume", href: "resume" },
+  { label: "Contact", href: "contact" },
 ];
 
 const Header: React.FC = () => {
@@ -33,6 +33,7 @@ const Header: React.FC = () => {
 
   return (
     <>
+      <section id="header"></section>
       <style>{`
         html {
           scroll-behavior: smooth;

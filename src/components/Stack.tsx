@@ -7,7 +7,6 @@ import {
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
-  // SiMaterialui,
   SiSass,
   SiNodedotjs,
   SiExpress,
@@ -16,15 +15,8 @@ import {
   SiSupabase,
   SiPostgresql,
   SiMongodb,
-  // SiVercel,
-  // SiGithub,
-  // SiPostman,
-  // SiOpenai,
   SiMysql,
 } from "react-icons/si";
-// import { FaGitAlt } from "react-icons/fa";
-// import { PiWhatsappLogoFill } from "react-icons/pi";
-// import { TbBrandVercel } from "react-icons/tb";
 
 type StackItem = {
   name: string;
@@ -37,7 +29,6 @@ const stack: StackItem[] = [
   { name: "React", icon: <SiReact className="text-cyan-400" /> },
   { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
   { name: "TailwindCSS", icon: <SiTailwindcss className="text-sky-400" /> },
-  // { name: "Material UI", icon: <SiMaterialui className="text-indigo-400" /> },
   { name: "Sass", icon: <SiSass className="text-pink-400" /> },
   { name: "Node.js", icon: <SiNodedotjs className="text-green-500" /> },
   { name: "Express", icon: <SiExpress className="text-gray-300" /> },
@@ -47,15 +38,6 @@ const stack: StackItem[] = [
   { name: "MySQL", icon: <SiMysql className="text-sky-300" /> },
   { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
   { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
-  // { name: "Vercel", icon: <TbBrandVercel className="text-white" /> },
-  // { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
-  // { name: "GitHub", icon: <SiGithub className="text-white" /> },
-  // { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
-  // { name: "OpenAI API", icon: <SiOpenai className="text-white" /> },
-  // {
-  //   name: "whatsapp-web.js",
-  //   icon: <PiWhatsappLogoFill className="text-green-400" />,
-  // },
 ];
 
 const Stack: React.FC = () => {
@@ -64,22 +46,29 @@ const Stack: React.FC = () => {
       <h3 className="text-3xl font-bold mb-8 text-center text-white">
         Tech Stack
       </h3>
+
       <div className="flex flex-wrap justify-center gap-6">
         {stack.map((item, idx) => (
           <Tooltip.Provider key={idx} delayDuration={100}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
                   viewport={{ once: true }}
-                  className="glass w-28 h-28 flex flex-col items-center justify-center rounded-xl border border-white/20 cursor-pointer shadow-md"
+                  className="relative w-28 h-28 flex flex-col items-center justify-center rounded-xl cursor-pointer"
                 >
-                  <div className="text-3xl mb-2">{item.icon}</div>
+                  {/* Neon Animated Border */}
+                  <div className="absolute inset-0 rounded-xl p-[2px] animate-gradient">
+                    <div className="w-full h-full rounded-xl bg-black/40 backdrop-blur flex items-center justify-center shadow-lg">
+                      <div className="text-3xl mb-2">{item.icon}</div>
+                    </div>
+                  </div>
                 </motion.div>
               </Tooltip.Trigger>
+
               <Tooltip.Portal>
                 <Tooltip.Content
                   side="top"
